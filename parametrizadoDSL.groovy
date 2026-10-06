@@ -1,4 +1,4 @@
-job('ejemplo2-job-DSL'){
+job('ejemplo3-job-DSL'){
   description('Job DSL de ejemplo para el curso de Jenkins')
   scm{
     git('https://github.com/DeveloperJulioT/job-jenkins-parametrizado.git', 'main') { node ->
@@ -13,6 +13,7 @@ job('ejemplo2-job-DSL'){
   }
   triggers {
   	cron('H/7 * * * *')
+    githubPush()
   }
   steps{
     shell("bash jobscript.sh")  
